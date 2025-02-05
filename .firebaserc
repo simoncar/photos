@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "default": "builder-403d5",
+    "photos": "builder-403d5"
+  },
+  "targets": {
+    "builder-403d5": {
+      "hosting": {
+        "photos": [
+          "photos-8ecad"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
