@@ -31,7 +31,7 @@ const LogScreen = () => {
 				<Image
 					style={styles.profilePhoto}
 					source={
-						"https://firebasestorage.googleapis.com/v0/b/builder-403d5.appspot.com/o/project%2F202501%2F1152af2d-d660-4552-87cf-c19943c16a7f?alt=media&token=4389c7fe-9785-46e1-aac5-f8b78acf0efb"
+						"https://firebasestorage.googleapis.com/v0/b/builder-403d5.appspot.com/o/project%2F202501%2F1152af2d-d660-4552-87cf-c19943c16a7f_600x600?alt=media&token=4389c7fe-9785-46e1-aac5-f8b78acf0efb"
 					}
 				/>
 			</View>
