@@ -57,11 +57,16 @@ const LogScreen = () => {
 					<View style={styles.textContainer}>
 						<Text style={styles.message}>{data.caption || ""}</Text>
 
-						{data.images && data.images.length > 0 && (
+						{data.images && data.images.length > 0 ? (
 							<View style={styles.imageContainer}>
 								{data.images.slice(0, 3).map((image, index) => (
 									<Image key={index} source={{ uri: insert600Size(image.url) }} style={styles.image} />
 								))}
+							</View>
+						) : (
+							<View style={styles.noPhotoContainer}>
+								<Text style={styles.noPhoto}>No photos yet - Check back later tonight.</Text>
+								<Text style={styles.noPhoto}>Aún no hay fotos. Vuelve a consultarlas más tarde esta noche.</Text>
 							</View>
 						)}
 						<Text style={styles.messageSmall}>{getRelativeTime(data.timestamp?.toDate()?.getTime() ?? 0)}</Text>
@@ -116,6 +121,15 @@ const styles = StyleSheet.create({
 
 	logList: {
 		paddingBottom: 50
+	},
+	noPhotoContainer: {
+		padding: 10,
+		textAlign: "center",
+		paddingBottom: 20
+	},
+	noPhoto: {
+		fontSize: 16,
+		textAlign: "center"
 	},
 	message: {
 		fontSize: 18,
