@@ -65,8 +65,8 @@ const LogScreen = () => {
 							</View>
 						) : (
 							<View style={styles.noPhotoContainer}>
+								<Text style={styles.noPhoto}>Aún no hay fotos. Inténtalo de nuevo más tarde esta noche.</Text>
 								<Text style={styles.noPhoto}>No photos yet - Check back later tonight.</Text>
-								<Text style={styles.noPhoto}>Aún no hay fotos. Vuelve a consultarlas más tarde esta noche.</Text>
 							</View>
 						)}
 						<Text style={styles.messageSmall}>{getRelativeTime(data.timestamp?.toDate()?.getTime() ?? 0)}</Text>
