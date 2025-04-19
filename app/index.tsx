@@ -44,7 +44,7 @@ const LogScreen = () => {
 		const backgroundColor = "black";
 
 		return (
-			<View style={styles.outerView} key={data.key}>
+			<View style={[styles.outerView, { backgroundColor: backgroundColor, alignItems: "center", justifyContent: "center", width: "100%" }]} key={data.key}>
 				<Pressable
 					onPress={() => {
 						if (data.linkURL) {
@@ -52,7 +52,7 @@ const LogScreen = () => {
 						}
 					}}>
 					<View style={styles.textContainer}>
-						<Text style={styles.message}>{data.caption?.trim() || ""}</Text>
+						<Text style={[styles.message, { flexWrap: "wrap" }]}>{data.caption?.trim() || ""}</Text>
 						<Text style={styles.messageSmall}>{getRelativeTime(data.timestamp?.toDate()?.getTime() ?? 0)}</Text>
 					</View>
 					<View style={styles.photoContainer}>
@@ -75,15 +75,17 @@ const LogScreen = () => {
 	}
 	return (
 		<View style={styles.container}>
-			<ScrollView style={styles.logList}>
-				<View style={styles.avatarAContainer}>
-					<View style={styles.avatarBView}>{profilePic()}</View>
-				</View>
-				{loading === false && (
+			<ScrollView style={styles.logList} contentContainerStyle={{ flexGrow: 1 }}>
+				<View style={[styles.container, { paddingHorizontal: 10 }]}>
 					<View style={styles.avatarAContainer}>
-						<ShortList data={posts} renderItem={renderRow} />
+						<View style={styles.avatarBView}>{profilePic()}</View>
 					</View>
-				)}
+					{loading === false && (
+						<View style={styles.avatarAContainer}>
+							<ShortList data={posts} renderItem={renderRow} />
+						</View>
+					)}
+				</View>
 			</ScrollView>
 		</View>
 	);
@@ -95,11 +97,10 @@ const styles = StyleSheet.create({
 		width: 50
 	},
 	image: {
-		height: 220,
-		width: 220,
-		paddingRight: 5,
-		marginRight: 5,
-		borderRadius: 5
+		height: 100,
+		width: 100,
+		margin: 10,
+		borderRadius: 20
 	},
 
 	imageContainer: {
