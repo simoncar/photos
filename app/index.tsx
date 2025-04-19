@@ -53,7 +53,9 @@ const LogScreen = () => {
 					}}>
 					<View style={styles.textContainer}>
 						<Text style={styles.message}>{data.caption?.trim() || ""}</Text>
-
+						<Text style={styles.messageSmall}>{getRelativeTime(data.timestamp?.toDate()?.getTime() ?? 0)}</Text>
+					</View>
+					<View style={styles.photoContainer}>
 						{data.images && data.images.length > 0 ? (
 							<View style={styles.imageContainer}>
 								{data.images.slice(0, 3).map((image, index) => (
@@ -66,7 +68,6 @@ const LogScreen = () => {
 								<Text style={styles.noPhoto}>No photos yet - Check back later tonight.</Text>
 							</View>
 						)}
-						<Text style={styles.messageSmall}>{getRelativeTime(data.timestamp?.toDate()?.getTime() ?? 0)}</Text>
 					</View>
 				</Pressable>
 			</View>
@@ -94,17 +95,15 @@ const styles = StyleSheet.create({
 		width: 50
 	},
 	image: {
-		height: 150,
-		width: 150,
+		height: 220,
+		width: 220,
 		paddingRight: 5,
 		marginRight: 5,
 		borderRadius: 5
 	},
 
 	imageContainer: {
-		flexDirection: "row",
-		alignItems: "center",
-		justifyContent: "center"
+		flexDirection: "row"
 	},
 	avatarFace: { borderRadius: 48 / 2, height: 48, width: 48 },
 
@@ -133,7 +132,7 @@ const styles = StyleSheet.create({
 		color: "white"
 	},
 	message: {
-		fontSize: 18,
+		fontSize: 24,
 		marginBottom: 5,
 		color: "white"
 	},
@@ -144,18 +143,19 @@ const styles = StyleSheet.create({
 	},
 
 	outerView: {
-		alignItems: "center",
-		borderBottomColor: "#CED0CE",
-		borderBottomWidth: StyleSheet.hairlineWidth,
+		borderColor: "#CED0CE",
+		borderWidth: StyleSheet.hairlineWidth,
 		flexDirection: "row",
 		paddingVertical: 8,
 		padding: 8,
-		justifyContent: "center"
+		borderRadius: 48 / 2,
+		marginBottom: 20,
+		backgroundColor: "#282828"
 	},
 	textContainer: {
-		flex: 1,
-		justifyContent: "center"
+		padding: 10
 	},
+	photoContainer: {},
 	profilePicContainer: {
 		alignItems: "center",
 		paddingBottom: 50,
