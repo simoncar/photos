@@ -154,7 +154,8 @@ const styles = StyleSheet.create({
 		backgroundColor: "#282828"
 	},
 	textContainer: {
-		padding: 10
+		padding: 10,
+		width: 350
 	},
 	photoContainer: {},
 	profilePicContainer: {
