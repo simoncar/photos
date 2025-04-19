@@ -1,4 +1,4 @@
-import { TextInput as DefaultTextInput, Text as DefaultText, useColorScheme, View as DefaultView, Button as DefaultButton, StyleSheet, TouchableOpacity } from "react-native";
+import { Button as DefaultButton, Text as DefaultText, TextInput as DefaultTextInput, View as DefaultView, StyleSheet, TouchableOpacity, useColorScheme } from "react-native";
 
 import { Colors } from "@/constants/Colors";
 import React from "react";
@@ -63,12 +63,12 @@ export function Button(props: ButtonProps) {
 
 const styles = StyleSheet.create({
 	button: {
-		backgroundColor: "#2196F3",
+		backgroundColor: "black",
 		borderColor: "lightgray",
 		borderRadius: 100,
 		padding: 10
 	},
 	loginText: {
-		color: "white"
+		color: "black"
 	}
 });

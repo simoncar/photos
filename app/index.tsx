@@ -1,13 +1,11 @@
-import React, { useEffect, useState, useContext } from "react";
-import { StyleSheet, ScrollView, Pressable, Linking } from "react-native";
 import { ShortList } from "@/components/Shortlist";
 import { Text, View } from "@/components/Themed";
 import { getPosts } from "@/lib/APIphoto";
-import Feather from "@expo/vector-icons/Feather";
-import { Image } from "expo-image";
-import { Link, router, usePathname } from "expo-router";
 import { IPost } from "@/lib/types";
 import { getRelativeTime } from "@/lib/util";
+import { Image } from "expo-image";
+import React, { useEffect, useState } from "react";
+import { Linking, Pressable, ScrollView, StyleSheet } from "react-native";
 
 const LogScreen = () => {
 	const [loading, setLoading] = useState(true);
@@ -43,19 +41,18 @@ const LogScreen = () => {
 	}
 
 	function renderRow(data: IPost) {
-		const backgroundColor = "transparent";
+		const backgroundColor = "black";
 
 		return (
-			<View key={data.key}>
+			<View style={styles.outerView} key={data.key}>
 				<Pressable
 					onPress={() => {
 						if (data.linkURL) {
 							Linking.openURL(data.linkURL);
 						}
-					}}
-					style={[styles.outerView, { backgroundColor: backgroundColor }]}>
+					}}>
 					<View style={styles.textContainer}>
-						<Text style={styles.message}>{data.caption || ""}</Text>
+						<Text style={styles.message}>{data.caption?.trim() || ""}</Text>
 
 						{data.images && data.images.length > 0 ? (
 							<View style={styles.imageContainer}>
@@ -97,15 +94,17 @@ const styles = StyleSheet.create({
 		width: 50
 	},
 	image: {
-		height: 100,
-		width: 100,
+		height: 150,
+		width: 150,
 		paddingRight: 5,
 		marginRight: 5,
 		borderRadius: 5
 	},
 
 	imageContainer: {
-		flexDirection: "row"
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "center"
 	},
 	avatarFace: { borderRadius: 48 / 2, height: 48, width: 48 },
 
@@ -116,7 +115,8 @@ const styles = StyleSheet.create({
 	},
 	container: {
 		flex: 1,
-		height: 200
+		height: 200,
+		backgroundColor: "black"
 	},
 
 	logList: {
@@ -129,11 +129,13 @@ const styles = StyleSheet.create({
 	},
 	noPhoto: {
 		fontSize: 16,
-		textAlign: "center"
+		textAlign: "center",
+		color: "white"
 	},
 	message: {
 		fontSize: 18,
-		marginBottom: 5
+		marginBottom: 5,
+		color: "white"
 	},
 	messageSmall: {
 		color: "grey",
@@ -147,7 +149,8 @@ const styles = StyleSheet.create({
 		borderBottomWidth: StyleSheet.hairlineWidth,
 		flexDirection: "row",
 		paddingVertical: 8,
-		padding: 8
+		padding: 8,
+		justifyContent: "center"
 	},
 	textContainer: {
 		flex: 1,

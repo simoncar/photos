@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text as RNText, TouchableOpacity, View } from "react-native";
+import { Text as RNText, StyleSheet, TouchableOpacity, View } from "react-native";
 
 export function Text(props) {
 	const { style, ...rest } = props;
@@ -28,7 +28,7 @@ export function ShortList(props) {
 
 	const features = props.data ? props.data : [];
 	return (
-		<View>
+		<View style={{ backgroundColor: "black" }}>
 			{features.map((el, index) => {
 				return props.renderItem(el, index);
 			})}
