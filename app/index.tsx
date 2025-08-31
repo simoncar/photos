@@ -36,8 +36,11 @@ const LogScreen = () => {
 		);
 	};
 
-	function insert600Size(url) {
-		return url.replace(/(\?alt=.*)/, "_600x600$1");
+	function insert600Size(url: string | undefined) {
+		if (typeof url === "string") {
+			return url.replace(/(\?alt=.*)/, "_600x600$1");
+		}
+		return "";
 	}
 
 	function renderRow(data: IPost) {
@@ -50,7 +53,8 @@ const LogScreen = () => {
 						if (data.linkURL) {
 							Linking.openURL(data.linkURL);
 						}
-					}}>
+					}}
+				>
 					<View style={styles.textContainer}>
 						<Text style={[styles.message, { flexWrap: "wrap" }]}>{data.caption?.trim() || ""}</Text>
 						<Text style={styles.messageSmall}>{getRelativeTime(data.timestamp?.toDate()?.getTime() ?? 0)}</Text>

@@ -2,6 +2,9 @@ import { db, firestore } from "./firebase";
 import { IPost } from "./types";
 
 function containsAsteriskBeforeHttp(str) {
+	if (typeof str !== "string") {
+		return false;
+	}
 	const httpIndex = str.indexOf("http");
 	if (httpIndex === -1) {
 		return false; // "http" not found in the string
