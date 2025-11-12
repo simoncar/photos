@@ -13,7 +13,7 @@ const staticPosts = [
 				url: "https://firebasestorage.googleapis.com/v0/b/builder-403d5.appspot.com/o/project%2Fphotos%2Fimages%2F9cffc8e1-e25e-43ea-a3c8-b4ab35219c1b?alt=media&token=2a894a51-082e-4707-b160-b10725e20842",
 				description: "Fuzzy background with wide aperture.",
 				notes: ["ƒ/2.8", "Shutter Speed 1/80 of a second", "ISO4000"],
-				learnings:""
+				learnings: ""
 			},
 			{
 				url: "https://via.placeholder.com/100x100?text=Image+2",
