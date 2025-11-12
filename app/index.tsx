@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
 		height: 100,
 		width: 100,
 		margin: 10,
-		borderRadius: 20
+		borderRadius: 10
 	},
 
 	imageContainer: {
@@ -148,14 +148,13 @@ const styles = StyleSheet.create({
 	},
 
 	outerView: {
-		borderColor: "#CED0CE",
+		borderColor: "grey",
 		borderWidth: StyleSheet.hairlineWidth,
 		flexDirection: "row",
 		paddingVertical: 8,
 		padding: 8,
-		borderRadius: 48 / 2,
-		marginBottom: 20,
-		backgroundColor: "#282828"
+		borderRadius: 10,
+		marginBottom: 20
 	},
 	textContainer: {
 		padding: 10,
