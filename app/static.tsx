@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View } from "@/components/Themed";
 import { Image } from "expo-image";
 import { ScrollView, StyleSheet } from "react-native";
-import { or } from "firebase/firestore";
+// ...existing code...
 
 const staticPosts = [
 	{
